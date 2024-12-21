@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipes</title>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.recipe-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.recipe-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card h2 {
+  margin: 0 0 10px;
+}
+
+.recipe-card ul {
+  list-style-type: square;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.recipe-card p {
+  margin: 10px 0;
+}
+
+</style>
+</head>
+<body>
+  <h1>Recipes</h1>
+  <a href="/add" class="btn">Add New Recipe</a>
+  <div class="recipe-container">
+    <% recipes.forEach(recipe => { %>
+      <div class="recipe-card">
+        <h2><%= recipe.name %></h2>
+        <p><strong>Ingredients:</strong></p>
+        <ul>
+          <% recipe.ingredients.forEach(ingredient => { %>
+            <li><%= ingredient %></li>
+          <% }) %>
+        </ul>
+        <p><strong>Preparation Time:</strong> <%= recipe.prepTimeInMinutes %> minutes</p>
+        <form action="/delete/<%= recipe._id %>" method="POST" style="display:inline;">
+          <button type="submit" class="btn-delete">Delete</button>
+        </form>
+        <a href="/edit/<%= recipe._id %>" class="btn">Edit</a>
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>

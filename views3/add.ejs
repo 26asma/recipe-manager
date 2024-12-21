@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Recipe</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Add Recipe</h1>
+  <form action="/add" method="POST">
+    <label for="name">Recipe Name:</label>
+    <input type="text" name="name" id="name" required>
+    <label for="ingredients">Ingredients (comma-separated):</label>
+    <input type="text" name="ingredients" id="ingredients" required>
+    <label for="prepTimeInMinutes">Preparation Time (minutes):</label>
+    <input type="number" name="prepTimeInMinutes" id="prepTimeInMinutes" required>
+    <button type="submit">Add Recipe</button>
+  </form>
+</body>
+</html>

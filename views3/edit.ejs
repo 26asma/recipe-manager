@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Recipe</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <h1>Edit Recipe</h1>
+  <form action="/edit/<%= recipe._id %>" method="POST">
+    <label for="name">Recipe Name:</label>
+    <input type="text" name="name" id="name" value="<%= recipe.name %>" required>
+    <label for="ingredients">Ingredients (comma-separated):</label>
+    <input type="text" name="ingredients" id="ingredients" value="<%= recipe.ingredients.join(', ') %>" required>
+    <label for="prepTimeInMinutes">Preparation Time (minutes):</label>
+    <input type="number" name="prepTimeInMinutes" id="prepTimeInMinutes" value="<%= recipe.prepTimeInMinutes %>" required>
+    <button type="submit">Update Recipe</button>
+  </form>
+</body>
+</html>
