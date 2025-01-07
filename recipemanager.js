@@ -9,7 +9,7 @@ const port = 3000;
 
 // MongoDB Setup
 const uri = process.env.MONGO_uri;
-console.log("MongoDB URI:", process.env.MONGO_uri);
+
 const dbName = "myDatabase";
 const collectionName = "recipes";
 const client = new MongoClient(uri);
